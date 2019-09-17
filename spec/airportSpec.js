@@ -9,8 +9,14 @@ describe('Airport', function() {
   });
 
   it('contains a plane when it has landed', function() {
-    airport._land(plane);
-    expect(airport._contains(plane)).toEqual(true);
+    airport.land(plane);
+    expect(airport.contains(plane)).toEqual(true);
+  });
+
+  it('does not contain a plane when the plane has taken off', function() {
+    airport.land(plane);
+    airport.takeOff(plane);
+    expect(airport.contains(plane)).toEqual(false);
   });
 
 });
